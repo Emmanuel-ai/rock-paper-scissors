@@ -1,6 +1,11 @@
 const options = document.querySelectorAll(".options");
  let cscore = 0;
  let pscore = 0;
+ function clr() {
+   document.getElementById("result").textContent = "";
+ 
+ 
+ }
 
 options.forEach((option) => {
     option.addEventListener("click", function(){
@@ -8,10 +13,10 @@ options.forEach((option) => {
 
         const cOptions = ["rock","paper","scissors"];
         const cInput = cOptions[Math.floor(Math.random()*cOptions.length)];
-        console.log(cInput)
         playGame(cInput,pInput);
         updateScore();
        announce()
+       
     });
 })
 
@@ -58,12 +63,19 @@ function updateScore(){
 }
 function announce(){
     if (cscore === 5){
-        document.getElementById("result").textContent =("you lose!")
+        document.getElementById("result").textContent = "you lose!";
     }
     if (pscore === 5){
-        document.getElementById("result").textContent =("you win!")
-    }
-    if (cscore === 5 || pscore === 5){
-        cscore = pscore =""
+        document.getElementById("result").textContent = "you win!";
     }
 }
+/*
+function clr() {
+  pscore = 0;
+  cscore = 0;
+
+  document.getElementById("result").textContent = "";
+
+
+}
+*/
